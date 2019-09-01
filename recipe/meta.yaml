@@ -12,9 +12,8 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
-  noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  number: 1
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   build:
@@ -27,6 +26,7 @@ requirements:
     - cryptography
     - python-dateutil
     - requests
+    - azure-storage-nspkg  # [py2k]
 
 test:
   imports:
